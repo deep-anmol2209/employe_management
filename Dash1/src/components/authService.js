@@ -126,6 +126,7 @@ class AuthService {
                 ...options.headers,
             };
         //   console.log("wait again")
+        console.log(this.api.baseURL)
             const response = await this.api.request({
                 url: endpoint,
                 ...options,
