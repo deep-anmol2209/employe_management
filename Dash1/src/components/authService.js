@@ -68,7 +68,7 @@ class AuthService {
 
     async refreshToken() {
         try {
-            const response = await this.api.get('http://localhost:3000/user/refresh_token'); // Refresh token is sent in cookie
+            const response = await this.api.get('user/refresh_token'); // Refresh token is sent in cookie
             if (response.status === 200 && response.data.accesstoken) {
                 this.token = response.data.accesstoken; // Update access token
                 return this.getUserFromToken();
