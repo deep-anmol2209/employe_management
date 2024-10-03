@@ -15,7 +15,7 @@ const DepartmentTable = () => {
 
   useEffect(() => {
     function fetchdepartments(){
-    apiCall('http://localhost:3000/departments/getdepartment', {
+    apiCall('https://ems-v7lp.onrender.com/departments/getdepartment', {
       method: 'GET',
     })
       .then((response) => {
