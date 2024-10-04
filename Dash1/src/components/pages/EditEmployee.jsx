@@ -30,7 +30,7 @@ const EditEmployee = () => {
   useEffect(() => {
     const fetchEmployeeDetails = async () => {
       try {
-        const response = await apiCall(`http://localhost:3000/Admin/getemployee/${id}`, {
+        const response = await apiCall(`/Admin/getemployee/${id}`, {
           method: 'GET',
         });
         setEmployee(response.data.result);
@@ -44,7 +44,7 @@ const EditEmployee = () => {
 
     const fetchDepartments = async () => {
       try {
-        const response = await apiCall('http://localhost:3000/departments/getdepartment', {
+        const response = await apiCall('/departments/getdepartment', {
           method: 'GET',
         });
         setDepartments(response.data.result);

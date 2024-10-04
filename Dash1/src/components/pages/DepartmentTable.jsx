@@ -43,7 +43,7 @@ const DepartmentTable = () => {
   };
 
   const handleSave = () => {
-    apiCall(`http://localhost:3000/departments/${editing}`, {
+    apiCall(`/departments/${editing}`, {
       method: 'PUT',
       data: editData,
     })
@@ -63,7 +63,7 @@ const DepartmentTable = () => {
   };
 
   const handleDelete = (id) => {
-    apiCall(`http://localhost:3000/departments/deleteDepartment/${id}`, {
+    apiCall(`/departments/deleteDepartment/${id}`, {
       method: 'DELETE',
     })
       .then(() => {
@@ -77,7 +77,7 @@ const DepartmentTable = () => {
   const handleAdd = () => {
    
     if (newDepartment.name) {
-      apiCall('http://localhost:3000/departments/postdepartment', {
+      apiCall('/departments/postdepartment', {
         method: 'POST',
         data: { name: newDepartment.name, employees: [] }, // Send empty employees array
       })

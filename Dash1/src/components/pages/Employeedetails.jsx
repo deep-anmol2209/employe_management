@@ -18,7 +18,7 @@ const Employeedetails = () => {
   useEffect(() => {
     const fetchStaffData = async () => {
       try {
-        const response = await apiCall('http://localhost:3000/Admin/fetchemployee', {
+        const response = await apiCall('/Admin/fetchemployee', {
           method: "GET",
         });
 
@@ -55,7 +55,7 @@ const Employeedetails = () => {
 
   const handleDelete = async () => {
     try {
-      await apiCall(`http://localhost:3000/Admin/employee/delete/${employeeToDelete}`, {
+      await apiCall(`/employee/delete/${employeeToDelete}`, {
         method: "DELETE",
       });
 

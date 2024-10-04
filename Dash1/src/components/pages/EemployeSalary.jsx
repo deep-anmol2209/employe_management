@@ -13,7 +13,7 @@ const EmployeeSalary = () => {
             try {
                 const employeeId = user.id; // Get employee ID from context
                 console.log(employeeId);
-                const response = await apiCall(`http://localhost:3000/salary/${employeeId}/getemployeesalary`, {
+                const response = await apiCall(`/salary/${employeeId}/getemployeesalary`, {
                     method: "GET"
                 });
                 setSalaryData(response.data.salary); // Set salary data

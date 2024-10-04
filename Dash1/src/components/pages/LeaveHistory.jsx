@@ -14,7 +14,7 @@ const LeaveHistory = () => {
         const employeeid= user.id
         console.log(employeeid)
         setLoading(true);
-        const response = await apiCall(`http://localhost:3000/leave/employeeleavehistory/${employeeid}`, {
+        const response = await apiCall(`/leave/employeeleavehistory/${employeeid}`, {
           method: 'GET',
         });
         setLeaveHistory(response.data.leaveRequests|| []); // Assuming response structure

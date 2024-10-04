@@ -14,7 +14,7 @@ const EmployeeTaskHistory = () => {
       try {
         setLoading(true);
         const response = await apiCall(
-          `http://localhost:3000/usertask/employee/task/completed/${empid}`,
+          `/usertask/employee/task/completed/${empid}`,
           {
             method: 'GET',
           }

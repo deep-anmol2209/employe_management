@@ -15,7 +15,7 @@ const LeaveRequests = () => {
       try {
         const adminId = user.id;
         setLoading(true);
-        const response = await apiCall(`http://localhost:3000/leave/getallmanageleaves/${adminId}`, {
+        const response = await apiCall(`/leave/getallmanageleaves/${adminId}`, {
           method: 'GET',
         });
         setRequests(response.data.manageLeaves);
@@ -41,7 +41,7 @@ const LeaveRequests = () => {
     try {
       const leaveId = id;
       console.log(action)
-      await apiCall(`http://localhost:3000/leave/validate/leaverequest/${leaveId}`, {
+      await apiCall(`/leave/validate/leaverequest/${leaveId}`, {
         method: 'PATCH',
         data: { action}, // Pass action (approve or reject) in the body
     

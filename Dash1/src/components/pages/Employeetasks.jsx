@@ -25,7 +25,7 @@ const Employeetasks = () => {
     const empid = user.id;
     const fetchTasks = async () => {
       try {
-        const response = await apiCall(`http://localhost:3000/usertask/getemployeependingtask/${empid}`, {
+        const response = await apiCall(`/usertask/getemployeependingtask/${empid}`, {
           method: "GET",
         });
         setLoading(false);
@@ -57,7 +57,7 @@ const Employeetasks = () => {
     const description = { description: formData.get('description') };
 
     try {
-      await apiCall(`http://localhost:3000/usertask/tasks/${selectedTaskId}/complete`, {
+      await apiCall(`/usertask/tasks/${selectedTaskId}/complete`, {
         method: 'PATCH',
         data: description,
       });

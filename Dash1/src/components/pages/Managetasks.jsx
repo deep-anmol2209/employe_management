@@ -25,7 +25,7 @@ const Managetasks = () => {
     const fetchTasks = async () => {
       setLoading(true); // Set loading to true when fetching starts
       try {
-        const response = await apiCall('http://localhost:3000/usertask/getallmanagetasks', { method: 'GET' });
+        const response = await apiCall('/usertask/getallmanagetasks', { method: 'GET' });
         const tasksData = response?.data?.allTasks?.[0]?.managetask;
         console.log(tasksData)
 
@@ -63,7 +63,7 @@ const Managetasks = () => {
       const endpoint = action === "reject" ? 'rejectTask' : 'completeTask';
     //   const taskId= tasksData.task._id
       console.log(taskId)
-      const response = await apiCall(`http://localhost:3000/usertask/tasks/${taskId}`, {
+      const response = await apiCall(`/usertask/tasks/${taskId}`, {
         method: 'PATCH',
         data: { action },
       });

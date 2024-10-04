@@ -20,7 +20,7 @@ function EmployeDashboard() {
       description: "Total leaves",
       color: "#ffcccb",
       icon: <FormatAlignLeftIcon />,
-      fetchData: () => apiCall(`http://localhost:3000/leave/getEmployeeLeaveCount/${id}`, {
+      fetchData: () => apiCall(`/leave/getEmployeeLeaveCount/${id}`, {
         method: "GET"
       }).then(response => {
         console.log("Leaves response:", response);
@@ -32,7 +32,7 @@ function EmployeDashboard() {
       description: "Total tasks",
       color: "#ccffcc",
       icon: <ContentPasteIcon />,
-      fetchData: () => apiCall(`http://localhost:3000/usertask/getemployeeTaskcount/${id}`, {
+      fetchData: () => apiCall(`/usertask/getemployeeTaskcount/${id}`, {
         method: "GET"
       }).then(response => {
         console.log("Tasks response:", response);

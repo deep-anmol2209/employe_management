@@ -16,7 +16,7 @@ const Getallleaverequests = () => {
   useEffect(() => {
     const fetchStaffleaves = async () => {
       try {
-        const response = await apiCall('http://localhost:3000/leave/getallleaves', {
+        const response = await apiCall('/leave/getallleaves', {
           method: "GET",
         });
         console.log("your response is: ", response.data);
