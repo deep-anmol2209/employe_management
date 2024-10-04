@@ -33,7 +33,7 @@ const ApplyLeave = () => {
       const formattedStartDate = new Date(formData.startDate).toISOString();
       const formattedEndDate = new Date(formData.endDate).toISOString();
   
-      const response = await apiCall('http://localhost:3000/leave/createleave', {
+      const response = await apiCall('/leave/createleave', {
         method: "POST",
         data: {
           type: formData.leaveType,

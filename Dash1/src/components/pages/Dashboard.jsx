@@ -22,7 +22,7 @@ function Dashboard() {
       description: "Total Departments",
       color: "#ffcccb",
       icon: <FormatAlignLeftIcon />,
-      fetchData: () => apiCall('http://localhost:3000/departments/getdepartmentsonly', {
+      fetchData: () => apiCall('/departments/getdepartmentsonly', {
         method: "GET"
       }).then(response => response?.data.result ?? 0)
     },
@@ -31,7 +31,7 @@ function Dashboard() {
       description: "Total Employees",
       color: "#ccffcc",
       icon: <ContentPasteIcon />,
-      fetchData: () => apiCall('http://localhost:3000/Admin/getemployeeonly', {
+      fetchData: () => apiCall('/Admin/getemployeeonly', {
         method: "GET"
       }).then(response => response?.data.result  ?? 0)
     },
@@ -40,7 +40,7 @@ function Dashboard() {
       description: "Total leaves",
       color: "#ffcccb",
       icon: <FormatAlignLeftIcon />,
-      fetchData: () => apiCall(`http://localhost:3000/leave/getCountofManageleaves/${adminId}`, {
+      fetchData: () => apiCall(`/leave/getCountofManageleaves/${adminId}`, {
         method: "GET"
       }).then(response => response?.data.result ?? 0)
     },

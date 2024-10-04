@@ -19,7 +19,7 @@ const AddTask = () => {
       setLoading(true);
       setError('');
       try {
-        const response = await apiCall('http://localhost:3000/departments/getdepartment', {
+        const response = await apiCall('/departments/getdepartment', {
           method: 'GET',
         });
         setDepartments(response.data.result);
@@ -42,7 +42,7 @@ const AddTask = () => {
       setLoading(true);
       setError('');
       try {
-        const response = await apiCall(`http://localhost:3000/Admin/getemployeeindepartment/${departmentName}`, {
+        const response = await apiCall(`/Admin/getemployeeindepartment/${departmentName}`, {
           method: 'GET',
         });
         setStaffList(response.data.employees);

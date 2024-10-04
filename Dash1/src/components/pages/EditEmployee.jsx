@@ -98,7 +98,7 @@ const EditEmployee = () => {
     console.log("Payload being sent:", updatedEmployee);
 
     try {
-      const response = await apiCall(`http://localhost:3000/Admin/employee/update/${id}`, {
+      const response = await apiCall(`/Admin/employee/update/${id}`, {
         method: 'PUT',
         data: updatedEmployee,
       });
