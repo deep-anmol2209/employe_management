@@ -24,7 +24,7 @@ const AddAdmin = () => {
     console.log('Admin details:', formData);
 
     try {
-      const response = await apiCall('http://localhost:3000/Admin/addNewadmin', {
+      const response = await apiCall('/Admin/addNewadmin', {
         method: 'POST',
         data: formData,
       });

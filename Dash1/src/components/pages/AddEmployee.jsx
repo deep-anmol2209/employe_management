@@ -50,10 +50,10 @@ const AddEmployee = () => {
     useEffect(() => {
         const fetchDepartments = async () => {
           try {
-            const response = await apiCall('http://localhost:3000/departments/getdepartment', {
+            const response = await apiCall('/departments/getdepartment', {
               method: 'GET',
             });
-            const dresponse= await apiCall('http://localhost:3000/designation/getDesignationName',{
+            const dresponse= await apiCall('/designation/getDesignationName',{
                 method:"GET"
             })
             // console.log(response.data.result)
@@ -139,7 +139,7 @@ const AddEmployee = () => {
         };
         console.log(staffData)
         try {
-          const response = await apiCall('http://localhost:3000/Admin/addemploye', {
+          const response = await apiCall('/Admin/addemploye', {
             method: 'POST',
             data: staffData,
           });

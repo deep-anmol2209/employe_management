@@ -82,7 +82,7 @@ const AddTask = () => {
     setSubmitLoading(true); // Show linear progress bar
 
     try {
-      await apiCall('http://localhost:3000/usertask/tasks', {
+      await apiCall('/usertask/tasks', {
         method: 'POST',
         data: submissionData,
       });
