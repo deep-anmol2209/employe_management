@@ -198,9 +198,9 @@ const AddEmployee = () => {
             <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
                 <h2 className="text-xl font-bold mb-4">Add Employee</h2>
                 {loading && <LinearProgress />}
-                <form onSubmit={handleSubmit} className="grid grid-cols-6 gap-4">
+                <form onSubmit={handleSubmit} className="grid grid-cols-1 sm:grid-cols-6 gap-4">
                     {/* Name */}
-                    <div className="col-span-3">
+                    <div className="col-span-1 sm:col-span-3">
                         <label className="block text-sm font-medium text-gray-700">Full Name</label>
                         <input
                             type="text"
@@ -212,7 +212,7 @@ const AddEmployee = () => {
                         />
                     </div>
                     {/* Password */}
-<div className="col-span-3">
+<div className="col-span-1 sm:col-span-3">
 <label className="block text-sm font-medium text-gray-700">Password</label>
 <input
   type="password"
@@ -225,7 +225,7 @@ const AddEmployee = () => {
 </div>
 
                     {/* Email */}
-                    <div className="col-span-3">
+                    <div className="col-span-1 sm:col-span-3">
                         <label className="block text-sm font-medium text-gray-700">Email</label>
                         <input
                             type="email"
@@ -238,7 +238,7 @@ const AddEmployee = () => {
                     </div>
 
                     {/* Phone */}
-                    <div className="col-span-3">
+                    <div className="col-span-1 sm:col-span-3">
                         <label className="block text-sm font-medium text-gray-700">Phone</label>
                         <input
                             type="text"
@@ -250,7 +250,7 @@ const AddEmployee = () => {
                         />
                     </div>
                     {/* Department */}
-<div className="col-span-3">
+<div className="col-span-1 sm:col-span-3">
 <label className="block text-sm font-medium text-gray-700">Department</label>
 <select
   name="departmentName"
@@ -272,7 +272,7 @@ const AddEmployee = () => {
 </select>
 </div>
 
-<div className="col-span-3">
+<div className="col-span-1 sm:col-span-3">
 <label className="block text-sm font-medium text-gray-700">Designation</label>
 <select
   name="designationId"
@@ -295,7 +295,7 @@ const AddEmployee = () => {
 </div>
 
                     {/* Date of Birth */}
-                    <div className="col-span-3">
+                    <div className="col-span-1 sm:col-span-3">
                         <label className="block text-sm font-medium text-gray-700">Date of Birth</label>
                         <input
                             type="date"
@@ -308,7 +308,7 @@ const AddEmployee = () => {
                     </div>
 
                     {/* Gender */}
-                    <div className="col-span-3">
+                    <div className="col-span-1 sm:col-span-3">
                         <label className="block text-sm font-medium text-gray-700">Gender</label>
                         <select
                             name="gender"
@@ -325,7 +325,7 @@ const AddEmployee = () => {
                     </div>
 
                     {/* Profile Picture */}
-                    <div className="col-span-3">
+                    <div className="col-span-1 sm:col-span-3">
                         <label className="block text-sm font-medium text-gray-700">Profile Picture</label>
                         <input
                             type="file"
@@ -336,7 +336,7 @@ const AddEmployee = () => {
                     </div>
 
                     {/* Joining Date */}
-                    <div className="col-span-3">
+                    <div className="col-span-1 sm:col-span-3">
                         <label className="block text-sm font-medium text-gray-700">Joining Date</label>
                         <input
                             type="date"
@@ -349,7 +349,7 @@ const AddEmployee = () => {
                     </div>
 
                     {/* Address */}
-                    <div className="col-span-6">
+                    <div className="col-span-1 sm:col-span-3">
                         <h2 className="text-lg font-semibold mb-2">Address</h2>
                     </div>
                     <div className="col-span-2">
@@ -363,7 +363,7 @@ const AddEmployee = () => {
                             required
                         />
                     </div>
-                    <div className="col-span-2">
+                    <div className="col-span-1 sm:col-span-2">
                         <label className="block text-sm font-medium text-gray-700">State</label>
                         <input
                             type="text"
@@ -374,7 +374,7 @@ const AddEmployee = () => {
                             required
                         />
                     </div>
-                    <div className="col-span-2">
+                    <div className="col-span-1 sm:col-span-2">
                         <label className="block text-sm font-medium text-gray-700">Locality</label>
                         <input
                             type="text"
@@ -387,10 +387,10 @@ const AddEmployee = () => {
                     </div>
 
                     {/* Bank Details */}
-                    <div className="col-span-6">
+                    <div className="col-span-1 sm:col-span-6">
                         <h2 className="text-lg font-semibold mb-2">Bank Details</h2>
                     </div>
-                    <div className="col-span-2">
+                    <div className="col-span-1 sm:col-span-3">
                         <label className="block text-sm font-medium text-gray-700">Account Holder Name</label>
                         <input
                             type="text"
@@ -401,7 +401,7 @@ const AddEmployee = () => {
                             required
                         />
                     </div>
-                    <div className="col-span-2">
+                    <div className="col-span-1 sm:col-span-2">
                         <label className="block text-sm font-medium text-gray-700">Account No</label>
                         <input
                             type="text"
@@ -412,7 +412,7 @@ const AddEmployee = () => {
                             required
                         />
                     </div>
-                    <div className="col-span-2">
+                    <div className="col-span-1 sm:col-span-3">
                         <label className="block text-sm font-medium text-gray-700">IFSC Code</label>
                         <input
                             type="text"
@@ -425,10 +425,10 @@ const AddEmployee = () => {
                     </div>
 
                     {/* Education Details */}
-                    <div className="col-span-6">
+                    <div className="col-span-1 sm:col-span-6">
                         <h2 className="text-lg font-semibold mb-2">Education Details</h2>
                     </div>
-                    <div className="col-span-2">
+                    <div className="col-span-1 sm:col-span-2">
                         <label className="block text-sm font-medium text-gray-700">Highest Qualification</label>
                         <select
                             name="highestQualification"
@@ -445,7 +445,7 @@ const AddEmployee = () => {
 
                         </select>
                     </div>
-                    <div className="col-span-2">
+                    <div className="col-span-1 sm:col-span-2">
                         <label className="block text-sm font-medium text-gray-700">University/School Name</label>
                         <input
                             type="text"
@@ -456,7 +456,7 @@ const AddEmployee = () => {
                             required
                         />
                     </div>
-                    <div className="col-span-2">
+                    <div className="col-span-1 sm:col-span-2">
                         <label className="block text-sm font-medium text-gray-700">Marksheet/Degree Image</label>
                         <input
                             type="file"
@@ -467,10 +467,10 @@ const AddEmployee = () => {
                     </div>
 
                     {/* ID Proofs */}
-                    <div className="col-span-6">
+                    <div className="col-span-1 sm:col-span-6">
                         <h2 className="text-lg font-semibold mb-2">ID Proofs</h2>
                     </div>
-                    <div className="col-span-2">
+                    <div className="col-span-1 sm:col-span-2">
                         <label className="block text-sm font-medium text-gray-700">Aadhar Number</label>
                         <input
                             type="text"
@@ -482,7 +482,7 @@ const AddEmployee = () => {
                         />
                     </div>
 
-                    <div className="col-span-2">
+                    <div className="col-span-1 sm:col-span-2">
                         <label className="block text-sm font-medium text-gray-700">Aadhar Photo</label>
                         <input
                             type="file"
@@ -492,7 +492,7 @@ const AddEmployee = () => {
                         />
                     </div>
 
-                    <div className="col-span-2">
+                    <div className="col-span-1 sm:col-span-2">
                         <label className="block text-sm font-medium text-gray-700">PAN Number</label>
                         <input
                             type="text"
@@ -504,7 +504,7 @@ const AddEmployee = () => {
                         />
                     </div>
 
-                    <div className="col-span-2">
+                    <div className="col-span-1 sm:col-span-2">
                         <label className="block text-sm font-medium text-gray-700">PAN Photo</label>
                         <input
                             type="file"
@@ -515,7 +515,7 @@ const AddEmployee = () => {
                     </div>
 
                     {/* Submit Button */}
-                    <div className="col-span-6">
+                    <div className="col-span-1 sm:col-span-3">
                         <button type="submit" className="mt-4 p-2 bg-blue-500 text-white rounded-md w-full">
                             Add Employee
                         </button>
