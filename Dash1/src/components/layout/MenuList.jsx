@@ -50,7 +50,7 @@ const MenuList = ({ darkTheme }) => {
             children: [
               {
                 key: 'add-staff',
-                label: <Link to = "/addStaff">Add Staff</Link>,
+                label: <Link to = "/addEmployee">Add Staff</Link>,
               },
               {
                 key: 'manage-staff',
