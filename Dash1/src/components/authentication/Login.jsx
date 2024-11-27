@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { lazy, useState } from 'react';
 import { useAuth } from '../context/AuthContext';
 
 export const Login = () => {
-  const backgroundimage= '/images/mepl.jpg'
+  const backgroundimage= '/images/login.jpeg'
   const { login } = useAuth(); // Get the login function from useAuth
   const [user, setUser] = useState({
     email: '',
@@ -34,7 +34,7 @@ const [loading, setLoading]= useState(false)
   };
 
   return (
-    <div className="display flex justify-center items-center min-h-screen bg-cover bg-center" style={{ backgroundImage: `url(${backgroundimage})`, width:"100%" }}>
+    <div className="display flex justify-center items-center min-h-screen bg-cover bg-center" style={{ backgroundImage: `url(${backgroundimage})`, width:"100%" , loading: lazy}}>
       <div className="w-96 bg-transparent border-2 border-black/10 backdrop-blur-lg shadow-lg text-black rounded-lg p-10">
         <form onSubmit={loginSubmit}>
           <h1 className="text-3xl text-center mb-10">Login</h1>
