@@ -1,6 +1,7 @@
 import React from 'react';
 import { Navigate, Outlet } from 'react-router-dom';
 import { useAuth } from './context/AuthContext';
+import CircularProgress from '@mui/material/CircularProgress'; 
 import { useEffect } from 'react';
 
 const PrivateRoute = ({ requiredRole, children }) => {
@@ -12,7 +13,7 @@ const PrivateRoute = ({ requiredRole, children }) => {
 
 
   if (loading) {
-    return <div>Loading...</div>; // Or use a spinner
+    if (loading) return <div className="text-center py-4"><CircularProgress /></div>;
   }
 
   if (!user) {
