@@ -2,7 +2,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 export const configure = {
-    mongodburi: process.env.MONGODB_URI,  // Fixed variable name
+    mongodburi: process.env.DB_URI,  // Fixed variable name
     PORT: process.env.PORT,
     jwtsecret: process.env.JWT_SECRET, // Fixed uppercase naming
     admin_password: process.env.ADMIN_PASSWORD, // Fixed variable name
