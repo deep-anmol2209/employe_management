@@ -51,7 +51,7 @@ app.use('/api/salary', salaryRoutes)
 app.use('/api/designation', designationRoutes)
 
 // Database Connection
-mongoose.connect(process.env.dburi, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(configure.mongodburi, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {console.log('MongoDB Connected');
     init();
    
