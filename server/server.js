@@ -21,7 +21,7 @@ import designationRoutes from "./routes/designationRoutes.js"
 
 
 const app = express();
-const PORT = configure.port || 5000;
+const PORT = configure.PORT || 5000;
 
 
 // Middleware
