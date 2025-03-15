@@ -3,6 +3,7 @@ import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser'; 
 import  {configure}  from './config.js';
+import dotenv from "dotenv"
 import cors from "cors"
 import checkpermissions from './middleware/checkPermissions.js';
 import userRoutes from './routes/userRoutes.js';
@@ -19,7 +20,7 @@ import designationRoutes from "./routes/designationRoutes.js"
 
 
 
-
+dotenv.config()
 const app = express();
 const PORT = configure.PORT || 5000;
 
@@ -50,7 +51,7 @@ app.use('/api/salary', salaryRoutes)
 app.use('/api/designation', designationRoutes)
 
 // Database Connection
-mongoose.connect(configure.mongodburi, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(process.env.dburi, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {console.log('MongoDB Connected');
     init();
    
