@@ -4,7 +4,7 @@ dotenv.config();
 
 export const configure={
 
-mongodburi: process.env.dburi,
+mongodburi: process.env.mongodburi,
 PORT: process.env.PORT,
 jwtsecret: process.env.jwtsecret,
 admin_password: process.env.admin_password,
