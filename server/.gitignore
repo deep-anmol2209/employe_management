@@ -1,0 +1,24 @@
+# Node.js dependencies
+node_modules/
+
+# Ignore IDE settings
+.idea/
+
+# Ignore all images but keep .gitkeep to preserve the folder
+images/*
+!images/.gitkeep
+
+# Environment variables (add this if you use .env for sensitive data)
+.env
+
+# Logs
+*.log
+logs/
+
+# Build files (optional, if applicable)
+build/
+dist/
+
+# Operating system files
+.DS_Store
+Thumbs.db

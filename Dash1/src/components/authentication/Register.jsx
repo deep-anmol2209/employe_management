@@ -25,7 +25,7 @@ export const Register = () => {
       if (!user.name || !user.email || !user.password || !user.phoneNumber) {
         console.log("enter details");
       }
-      const response = await axios.post('http://192.168.29.189:3000/user/register', { ...user });
+      const response = await axios.post('https://employee.manage.mepl-erp.co.in/api/user/register', { ...user });
       const token = response.data;
       console.log(token);
       localStorage.setItem('token', token.accesstoken);
