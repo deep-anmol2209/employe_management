@@ -41,13 +41,13 @@ app.use(cookieParser());
 // app.use(auth(configure))
 
 //routes
-app.use("/user", authRoutes)
-app.use("/Admin", userRoutes)
-app.use("/departments", departmentRoutes )
-app.use("/usertask", taskRoutes)
-app.use("/leave", leaveRoutes )
-app.use('/salary', salaryRoutes)
-app.use('/designation', designationRoutes)
+app.use("/api/user", authRoutes)
+app.use("/api/Admin", userRoutes)
+app.use("/api/departments", departmentRoutes )
+app.use("/api/usertask", taskRoutes)
+app.use("/api/leave", leaveRoutes )
+app.use('/api/salary', salaryRoutes)
+app.use('/api/designation', designationRoutes)
 
 // Database Connection
 mongoose.connect(configure.mongodburi, { useNewUrlParser: true, useUnifiedTopology: true })
