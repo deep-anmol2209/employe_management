@@ -29,7 +29,7 @@ const PORT = configure.PORT || 5000;
 app.use(express.json({limit: "50mb"}))
 app.use(bodyParser.json());
 const allowedOrigins = [
-    "https://employee.manage.mepl-erp.co.in", // Add other allowed origins here
+    "https://employe.manage.mepl-erp.co.in", // Add other allowed origins here
   ];
   
   app.use(cors({
