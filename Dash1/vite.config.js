@@ -8,6 +8,6 @@ export default defineConfig({
     host: true,
     port: 5001,
     strictPort: true,
-    allowedHosts: ['manage.employee.mepl-erp.co.in']
+    allowedHosts: ['employe.manage.mepl-erp.co.in']
   }
 })
