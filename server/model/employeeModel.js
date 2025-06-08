@@ -1,14 +1,12 @@
 import mongoose from "mongoose";
 import AutoIncrementFactory from "mongoose-sequence";
 
-
 const AutoIncrement = AutoIncrementFactory(mongoose);
 
 // Separate schema for Address
 const addressSchema = new mongoose.Schema({
     city: { type: String, required: true },
     state: { type: String, required: true },
-    country: { type: String, required: true},
     locality: { type: String }
 });
 
@@ -31,15 +29,15 @@ const employeeSchema = new mongoose.Schema({
         type: String,
         required: true,
         unique: true,
-        match: [/^\S+@\S+\.\S+$/, 'Invalid email format']  // Email validation
+        match: [/^\S+@\S+\.\S+$/, 'Invalid email format']
     },
     password: {
         type: String,
         required: true
     },
-    profilePicture: {
-        public_id: String,
-        secure_url: String
+    photo: {
+        type: String, // store filename (e.g. "123456789-photo.jpg")
+        required: false
     },
     gender: {
         type: String,
@@ -50,19 +48,18 @@ const employeeSchema = new mongoose.Schema({
         type: Date,
         required: true
     },
-    address: addressSchema,  // Use the address schema
+    address: addressSchema,
     mobileNo: {
         type: String,
         unique: true,
         required: true,
-        match: [/^\d{10}$/, 'Mobile number must be 10 digits']  // Mobile number validation
+        match: [/^\d{10}$/, 'Mobile number must be 10 digits']
     },
     designationId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Designation',
-        required: true
     },
-    lastSalaryPaidDate:{
+    lastSalaryPaidDate: {
         type: Date,
         default: null
     },
@@ -71,7 +68,7 @@ const employeeSchema = new mongoose.Schema({
         default: Date.now
     },
     basicSalary: {
-        type: Number,  // Store salary as a number for consistency
+        type: Number,
         default: null
     },
     education_details: {
@@ -80,33 +77,9 @@ const employeeSchema = new mongoose.Schema({
             enum: ['Matriculation', 'Intermediate', 'Graduate', 'Post Graduate'],
             required: true,
         },
-        marksheet_degree_image: {
-            public_id: { type: String, required: true },
-            secure_url: { type: String, required: true }
-        },
         universitySchoolname: {
             type: String,
             required: true
-        }
-    },
-    idproofs: {
-        adharNo: {
-            type: String,
-            required: true,
-            unique: true
-        },
-        adharPhoto: {
-            public_id: { type: String, required:  false},
-            secure_url: { type: String, required: false }
-        },
-        panNo: {
-            type: String,
-            required: true,
-            unique: true
-        },
-        panPhoto: {
-            public_id: { type: String, required: false },
-            secure_url: { type: String, required: false }
         }
     },
     bankDetails: {
@@ -119,7 +92,7 @@ const employeeSchema = new mongoose.Schema({
         ref: "department",
         required: true
     },
-    notifications: [{  // Correct typo
+    notifications: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: "notification"
     }],

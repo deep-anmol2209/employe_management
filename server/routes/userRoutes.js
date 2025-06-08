@@ -3,10 +3,11 @@ import auth from "../middleware/checkAuth.js"
 import checkAdmin from "../middleware/checkAdmin.js"
 import checkpermissions from "../middleware/checkPermissions.js"
 import express from "express"
+import upload from "../middleware/uploadMiddleware.js"
 //const router = require('express').Router()
 const router= express.Router()
 router.post('/addNewadmin',[auth, checkAdmin], usercontrol.addAdmin)
-router.post("/addemploye", [auth, checkpermissions.checkHR], usercontrol.addEmployee  )
+router.post("/addemploye", [auth, checkpermissions.checkHR, upload.single('profilePicture')], usercontrol.addEmployee  )
 router.delete("/employee/delete/:id",[auth, checkAdmin], usercontrol.deleteEmployee)
 router.put("/employee/update/:userId",[auth,checkAdmin] , usercontrol.updateEmployeeDetails)
 router.get('/fetchemployee', [auth,checkAdmin], usercontrol.getallemployees)

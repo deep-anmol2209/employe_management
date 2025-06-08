@@ -4,7 +4,9 @@ import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser'; 
 import  {configure}  from './config.js';
 import dotenv from "dotenv"
+import path from "path"
 import cors from "cors"
+import { fileURLToPath } from 'url';
 import checkpermissions from './middleware/checkPermissions.js';
 import userRoutes from './routes/userRoutes.js';
 import departmentRoutes from "./routes/departmentRoutes.js"
@@ -29,7 +31,8 @@ const PORT = process.env.PORT;
 app.use(express.json({limit: "50mb"}))
 app.use(bodyParser.json());
 const allowedOrigins = [
-    "https://employe.manage.mepl-erp.co.in", // Add other allowed origins here
+    "https://employe.manage.mepl-erp.co.in",
+    "http://localhost:5001" // Add other allowed origins here
   ];
   
   app.use(cors({
@@ -39,6 +42,10 @@ const allowedOrigins = [
   }));
   
 app.use(cookieParser());
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+
 // app.use(auth(configure))
 
 //routes
@@ -51,6 +58,8 @@ app.use('/api/salary', salaryRoutes)
 app.use('/api/designation', designationRoutes)
 
 // Database Connection
+console.log(process.env.MONGODB_URI);
+
 mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {console.log('MongoDB Connected');
     init();
