@@ -31,8 +31,8 @@ const PORT = process.env.PORT;
 app.use(express.json({limit: "50mb"}))
 app.use(bodyParser.json());
 const allowedOrigins = [
-    "https://employe.manage.mepl-erp.co.in",
-    "http://localhost:5001" // Add other allowed origins here
+    "https://employe-management-hazel.vercel.app",
+   
   ];
   
   app.use(cors({
