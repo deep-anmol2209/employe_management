@@ -55,7 +55,7 @@ const Employeedetails = () => {
 
   const handleDelete = async () => {
     try {
-      await apiCall(`/employee/delete/${employeeToDelete}`, {
+      await apiCall(`/Admin/employee/delete/${employeeToDelete}`, {
         method: "DELETE",
       });
 
@@ -93,7 +93,7 @@ const Employeedetails = () => {
                   <th className="px-4 py-2 border-b border-r border-black text-left text-sm font-medium text-gray-700">Locality</th>
                   <th className="px-4 py-2 border-b border-r border-black text-left text-sm font-medium text-gray-700">City</th>
                   <th className="px-4 py-2 border-b border-r border-black text-left text-sm font-medium text-gray-700">State</th>
-                  <th className="px-4 py-2 border-b border-r border-black text-left text-sm font-medium text-gray-700">Country</th>
+                  
                   <th className="px-4 py-2 border-b border-black text-left text-sm font-medium text-gray-700">Actions</th>
                 </tr>
               </thead>
@@ -103,7 +103,7 @@ const Employeedetails = () => {
                     <td className="px-4 py-2 border-b border-r border-black text-sm text-gray-700">{cnt.id}</td>
                     <td className="px-4 py-2 border-b border-r border-black text-sm text-gray-700">{cnt.name}</td>
                     <td className="px-4 py-2 border-b border-r border-black text-sm text-gray-700">
-                      <img src={cnt.profilePicture?.secure_url} className="w-12 h-12 rounded-full" alt="User" />
+                      <img src={`http://localhost:3001${cnt.photo}`} className="w-12 h-12 rounded-full" alt="User" />
                     </td>
                     <td className="px-4 py-2 border-b border-r border-black text-sm text-gray-700">{cnt.departmentId?.name}</td>
                     <td className="px-4 py-2 border-b border-r border-black text-sm text-gray-700">{cnt.gender}</td>
@@ -114,14 +114,14 @@ const Employeedetails = () => {
                     <td className="px-4 py-2 border-b border-r border-black text-sm text-gray-700">{cnt.address?.locality}</td>
                     <td className="px-4 py-2 border-b border-r border-black text-sm text-gray-700">{cnt.address?.city}</td>
                     <td className="px-4 py-2 border-b border-r border-black text-sm text-gray-700">{cnt.address?.state}</td>
-                    <td className="px-4 py-2 border-b border-r border-black text-sm text-gray-700">{cnt.address?.country}</td>
-                    <td className="px-4 py-2 border-b border-black text-sm text-gray-700 flex mt-2 gap-2">
+                    
+                    <td className="px-4 py-2  border-black text-sm text-gray-700 flex mt-2 gap-2">
                       <Link to={`/edit-staff/${cnt._id}`} className="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600">Edit</Link>
                       <Button
-                        sx={{ height: "27px" }}
+                        sx={{ height: "28px"   }}
                         variant="outlined"
                         color="error"
-                        className="ml-2 w-0"
+                        
                         onClick={() => handleDeleteClick(cnt._id)}
                       >
                         Delete

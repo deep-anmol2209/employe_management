@@ -12,7 +12,7 @@ const AddEmployee = () => {
         dob: '',
         gender: '',
         departmentName: '',
-        designationId: '',
+       
         password: '',
         address: {
             city: '',
@@ -32,7 +32,6 @@ const AddEmployee = () => {
     });
 
     const [departments, setDepartments] = useState([]);
-    const [designations, setDesignations] = useState([]);
     const { apiCall } = useAuth();
     const [loading, setLoading] = useState(false);
     const [snackbarOpen, setSnackbarOpen] = useState(false);
@@ -44,9 +43,8 @@ const AddEmployee = () => {
         const fetchDepartments = async () => {
             try {
                 const response = await apiCall('/departments/getdepartment', { method: 'GET' });
-                const dresponse = await apiCall('/designation/getDesignationName', { method: 'GET' });
                 setDepartments(response.data.result);
-                setDesignations(dresponse.data.getDesignation);
+               
             } catch (error) {
                 console.error('Error fetching departments:', error);
                 showSnackbar('Failed to load departments and designations', 'error');
@@ -89,7 +87,6 @@ const AddEmployee = () => {
             dob: '',
             gender: '',
             departmentName: '',
-            designationId: '',
             password: '',
             address: {
                 city: '',
@@ -350,23 +347,7 @@ const AddEmployee = () => {
                                     </select>
                                 </div>
 
-                                <div>
-                                    <label className="block text-sm font-medium text-gray-700 mb-1">Designation*</label>
-                                    <select
-                                        name="designationId"
-                                        value={formData.designationId}
-                                        onChange={handleInputChange}
-                                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all shadow-sm"
-                                       
-                                    >
-                                        <option value="">Select Designation</option>
-                                        {designations.map((desg) => (
-                                            <option key={desg._id} value={desg._id}>
-                                                {desg.title}
-                                            </option>
-                                        ))}
-                                    </select>
-                                </div>
+                                
 
                                 <div>
                                     <label className="block text-sm font-medium text-gray-700 mb-1">Joining Date*</label>

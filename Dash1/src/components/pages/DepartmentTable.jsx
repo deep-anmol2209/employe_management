@@ -119,63 +119,70 @@ const DepartmentTable = () => {
                 <th className="py-3 px-4 border-b text-left text-gray-700">Actions</th>
               </tr>
             </thead>
-            { departments.length===0 ? (<p className="text-center relative left-200 text-gray-600">No Department added yet</p>):(
             <tbody>
-              {departments.map((department) => (
-                <tr key={department._id} className="border-b hover:bg-gray-50">
-                  <td className="py-2 px-4 flex items-center text-gray-800">
-                    <FaBuilding size={20} className="mr-2 text-blue-500" />
-                    {editing === department._id ? (
-                      <input
-                        type="text"
-                        value={editData.name}
-                        onChange={(e) => setEditData({ name: e.target.value })}
-                        className="border border-gray-300 p-1 rounded w-full"
-                      />
-                    ) : (
-                      department.name
-                    )}
-                  </td>
-                  <td className="py-2 px-4 text-gray-800">
-                    {(department.employees || []).length}
-                  </td>
-                  <td className="py-2 px-4 flex space-x-2">
-                    {editing === department._id ? (
-                      <>
-                        <button
-                          onClick={handleSave}
-                          className="bg-green-500 text-white p-1 rounded hover:bg-green-600 flex items-center"
-                        >
-                          Save
-                        </button>
-                        <button
-                          onClick={() => setEditing(null)}
-                          className="bg-gray-500 text-white p-1 rounded hover:bg-gray-600 flex items-center"
-                        >
-                          Cancel
-                        </button>
-                      </>
-                    ) : (
-                      <>
-                        <button
-                          onClick={() => handleEdit(department)}
-                          className="text-blue-500 hover:text-blue-700 flex items-center"
-                        >
-                          <FaEdit size={18} />
-                        </button>
-                        <button
-                          onClick={() => handleDelete(department._id)}
-                          className="text-red-500 hover:text-red-700 flex items-center"
-                        >
-                          <FaTrashAlt size={18} />
-                        </button>
-                      </>
-                    )}
-                  </td>
-                </tr>
-              ))}
-            </tbody>)
-}
+  {departments.length === 0 ? (
+    <tr>
+      <td colSpan="3" className="text-center py-4 text-gray-600">
+        No Department added yet
+      </td>
+    </tr>
+  ) : (
+    departments.map((department) => (
+      <tr key={department._id} className="border-b hover:bg-gray-50">
+        <td className="py-2 px-4 flex items-center text-gray-800">
+          <FaBuilding size={20} className="mr-2 text-blue-500" />
+          {editing === department._id ? (
+            <input
+              type="text"
+              value={editData.name}
+              onChange={(e) => setEditData({ name: e.target.value })}
+              className="border border-gray-300 p-1 rounded w-full"
+            />
+          ) : (
+            department.name
+          )}
+        </td>
+        <td className="py-2 px-4 text-gray-800">
+          {(department.employees || []).length}
+        </td>
+        <td className="py-2 px-4 flex space-x-2">
+          {editing === department._id ? (
+            <>
+              <button
+                onClick={handleSave}
+                className="bg-green-500 text-white p-1 rounded hover:bg-green-600 flex items-center"
+              >
+                Save
+              </button>
+              <button
+                onClick={() => setEditing(null)}
+                className="bg-gray-500 text-white p-1 rounded hover:bg-gray-600 flex items-center"
+              >
+                Cancel
+              </button>
+            </>
+          ) : (
+            <>
+              <button
+                onClick={() => handleEdit(department)}
+                className="text-blue-500 hover:text-blue-700 flex items-center"
+              >
+                <FaEdit size={18} />
+              </button>
+              <button
+                onClick={() => handleDelete(department._id)}
+                className="text-red-500 hover:text-red-700 flex items-center"
+              >
+                <FaTrashAlt size={18} />
+              </button>
+            </>
+          )}
+        </td>
+      </tr>
+    ))
+  )}
+</tbody>
+
           </table>
         </div>
 

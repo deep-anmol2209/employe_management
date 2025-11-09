@@ -24,7 +24,7 @@ function Dashboard() {
       icon: <FormatAlignLeftIcon />,
       fetchData: () => apiCall('/departments/getdepartmentsonly', {
         method: "GET"
-      }).then(response => response?.data.result ?? 0)
+      }).then(response => response?.data?.result || 0)
     },
     {
       title: "staff",
@@ -33,7 +33,7 @@ function Dashboard() {
       icon: <ContentPasteIcon />,
       fetchData: () => apiCall('/Admin/getemployeeonly', {
         method: "GET"
-      }).then(response => response?.data.result  ?? 0)
+      }).then(response => response?.data?.result  ?? 0)
     },
     {
       title: "leaves",
@@ -42,7 +42,7 @@ function Dashboard() {
       icon: <FormatAlignLeftIcon />,
       fetchData: () => apiCall(`/leave/getCountofManageleaves/${adminId}`, {
         method: "GET"
-      }).then(response => response?.data.result ?? 0)
+      }).then(response => response?.data?.result ?? 0)
     },
     // {
     //   title: "salary",
@@ -114,8 +114,9 @@ function Dashboard() {
                     {card.description}
                   </Typography>
                   <Typography variant="h6" color="text.primary">
-                  {counters[card.title] !== undefined ? counters[card.title] : 'Loading...'}
-                  </Typography>
+  {counters[card.title] ?? 0}
+</Typography>
+
                 </CardContent>
               </Card>
             </Grid>

@@ -55,10 +55,7 @@ const employeeSchema = new mongoose.Schema({
         required: true,
         match: [/^\d{10}$/, 'Mobile number must be 10 digits']
     },
-    designationId: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Designation',
-    },
+   
     lastSalaryPaidDate: {
         type: Date,
         default: null

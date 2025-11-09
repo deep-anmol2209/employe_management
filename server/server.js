@@ -65,7 +65,7 @@ mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTop
     init();
    
 })
-  .catch(err => console.log(err));
+  .catch(err => console.log(err.message));
 
   async function init() {
     try {

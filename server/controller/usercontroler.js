@@ -61,7 +61,7 @@ const usercontrol = {
                 bankDetails,
                 gender,
                 education_details,
-                designationId
+               
             } = req.body;
 
             const file = req.file; // assuming you're using multer middleware
@@ -91,13 +91,7 @@ const usercontrol = {
                 return res.status(404).json({ msg: "Department not found." });
             }
 
-            if (designationId) {
-                // Check if designation exists
-                const designation = await Designation.findById(designationId);
-                if (!designation) {
-                    return res.status(404).json({ msg: "Designation not found." });
-                }
-            }
+          
             // Hash password
             const hashedPassword = await bcrypt.hash(password, 10);
 
@@ -121,7 +115,6 @@ const usercontrol = {
                 bankDetails: bankDetailsParsed,
                 joiningDate,
                 departmentId: departmentDoc._id,
-                designationId : designationId || null,
                 profilePicture: imagePath,
                 education_details: {
                     highestQualification: educationDetailsParsed.highestQualification,
@@ -139,13 +132,7 @@ const usercontrol = {
                 { $push: { employees: newUser._id } },
                 { new: true }
             );
- if(designationId){
-            await Designation.findByIdAndUpdate(
-                designationId,
-                { $push: { employeeIds: newUser._id } },
-                { new: true }
-            );
-        }
+ 
             res.status(201).json({ message: 'Employee created successfully', user: newUser });
 
         } catch (error) {
@@ -295,11 +282,7 @@ const usercontrol = {
                 return res.status(404).json({ msg: "Employee not found" });
             }
 
-            // Delete the profile picture from Cloudinary
-            const public_id = employeeToDelete.profilePicture.public_id;
-            if (public_id) {
-                await cloudinary.uploader.destroy(public_id);
-            }
+            
 
             // Delete the associated salary record
             await salary.findByIdAndDelete(employeeToDelete.salaryId);
@@ -309,10 +292,7 @@ const usercontrol = {
                 employeeToDelete.departmentId,
                 { $pull: { employees: employeeToDelete._id } }
             );
-            await Designation.findByIdAndUpdate(
-                employeeToDelete.designationId,
-                { $pull: { employeeIds: employeeToDelete._id } }
-            )
+         
 
             // Delete the employee record from the database
             await employee.findByIdAndDelete(id);
@@ -332,7 +312,7 @@ const usercontrol = {
         try {
             const employees = await employee
                 .find()
-                .select('id name mobileNo email gender joiningDate profilePicture dob address') // Replace with the fields you want to retrieve from employee
+                .select('id name mobileNo email gender joiningDate photo profilePicture dob address') // Replace with the fields you want to retrieve from employee
                 .populate('departmentId', 'name') // Populate departmentId and select only the name field
                 .exec();
 
